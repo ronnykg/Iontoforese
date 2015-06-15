@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable>
+  <columns>
+   <connections preferredWidth="47" />
+   <irq preferredWidth="34" />
+  </columns>
+ </systemtable>
+ <clocktable>
+  <columns>
+   <clockname preferredWidth="194" />
+   <clocksource preferredWidth="194" />
+   <frequency preferredWidth="187" />
+  </columns>
+ </clocktable>
+ <window width="1176" height="1032" x="0" y="0" />
+ <library
+   expandedCategories="Library/Interface Protocols/Serial,Library/Bridges,Library/Peripherals/Microcontroller Peripherals,Library/Peripherals,Library/Microcontroller Peripherals,Library/Interface Protocols,Library/Clock and Reset,Project,Library/Merlin Components,Library" />
+ <hdlexample language="VHDL" />
+</preferences>

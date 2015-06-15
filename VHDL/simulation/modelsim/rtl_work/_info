@@ -1,0 +1,377 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Admin\Documents\GitHub\Mestrado\VHDL\simulation\modelsim
+Ede2_clock
+Z1 w1430846463
+Z2 DPx4 work 5 types 0 22 dTUD24QdCZn[c9=zJegU]2
+Z3 DPx13 ieee_proposed 9 float_pkg 0 22 ?bHSA4cQ;o]PIWl3Ol^M]0
+Z4 DPx13 ieee_proposed 9 fixed_pkg 0 22 9^kh=2`Pl0bYTITWE;95^3
+Z5 DPx13 ieee_proposed 17 fixed_float_types 0 22 12W;lM338LLiPBY[4@eC21
+Z6 DPx4 work 7 usb_inc 0 22 ML;fnXOI6CYPj3>4P;c^R0
+Z7 DPx4 work 10 devreq_inc 0 22 FjU]o@?bHMD]B<8<2Ta[J3
+Z8 DPx4 work 7 isp_drv 0 22 D4>oGL11<kQQ;?gkcIOee0
+Z9 DPx4 work 7 isp_hal 0 22 0K9]IBX;=nR@HM60nRCzN0
+Z10 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z11 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z12 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z13 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z14 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z15 dC:\Users\Admin\Documents\GitHub\Mestrado\VHDL\simulation\modelsim
+Z16 8C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/DE2_CLOCK.vhd
+Z17 FC:/Users/Admin/Documents/GitHub/Mestrado/VHDL/DE2_CLOCK.vhd
+l0
+L21
+V4OLBC7<dgC]]hE5@VE=`K3
+!s100 jM@;k;;HGS^cC^6D]PN^R2
+Z18 OV;C;10.1d;51
+31
+!i10b 1
+Z19 !s108 1430847553.403000
+Z20 !s90 -reportprogress|300|-93|-work|work|C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/DE2_CLOCK.vhd|
+Z21 !s107 C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/DE2_CLOCK.vhd|
+Z22 o-93 -work work -O0
+Z23 tExplicit 1
+Aa
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+R10
+R11
+R12
+R13
+R14
+DEx4 work 9 de2_clock 0 22 4OLBC7<dgC]]hE5@VE=`K3
+l106
+L49
+VMmj7]mQH_;Rk=g5no;ae11
+!s100 EhAiTXBCafi8m[9:BiIjJ3
+R18
+31
+!i10b 1
+R19
+R20
+R21
+R22
+R23
+Edevreq
+Z24 w1400118024
+Z25 DPx4 work 7 isp_inc 0 22 K>ZzMXnLF@L3HTohllzA31
+R9
+R6
+R7
+R10
+R13
+R14
+R15
+Z26 8C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/devreq.vhd
+Z27 FC:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/devreq.vhd
+l0
+L68
+VRX<;Yg<EZziIdcdIU=Qm`1
+R18
+31
+Z28 !s108 1430847545.903000
+Z29 !s90 -reportprogress|300|-93|-work|work|C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/devreq.vhd|
+Z30 !s107 C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/devreq.vhd|
+R22
+R23
+!s100 Eemz5bIbmbmZ_eR3Teo_d1
+!i10b 1
+Ahandler
+R25
+R9
+R6
+R7
+R10
+R13
+R14
+DEx4 work 6 devreq 0 22 RX<;Yg<EZziIdcdIU=Qm`1
+l120
+L76
+VYofz?71;DJb8JGl^K?ggl3
+R18
+31
+R28
+R29
+R30
+R22
+R23
+!s100 7mJV3^OhHbTgn42>R_@z_0
+!i10b 1
+Pdevreq_inc
+R9
+R10
+R6
+R13
+R14
+R24
+R15
+R26
+R27
+l0
+L38
+VFjU]o@?bHMD]B<8<2Ta[J3
+R18
+31
+R28
+R29
+R30
+R22
+R23
+!s100 :OA`gJEL_8Wg5BKOX[b?Q0
+!i10b 1
+Edrv
+R24
+R25
+R6
+R7
+R8
+R9
+R10
+R13
+R14
+R15
+Z31 8C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/drv.vhd
+Z32 FC:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/drv.vhd
+l0
+L78
+V]O2]<IccW<aD56AaUYAW31
+R18
+31
+Z33 !s108 1430847549.168000
+Z34 !s90 -reportprogress|300|-93|-work|work|C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/drv.vhd|
+Z35 !s107 C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/drv.vhd|
+R22
+R23
+!s100 0z]LeRS2V;ec98fciFNM=1
+!i10b 1
+Ahandler
+R25
+R6
+R7
+R8
+R9
+R10
+R13
+R14
+DEx4 work 3 drv 0 22 ]O2]<IccW<aD56AaUYAW31
+l187
+L86
+VFoKHL^?kYJbVjD36cz8X00
+R18
+31
+R33
+R34
+R35
+R22
+R23
+!s100 @EXB6F5jKRaSVCQN20lGY1
+!i10b 1
+Ehal
+R24
+R9
+R10
+R13
+R14
+R15
+Z36 8C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/hal.vhd
+Z37 FC:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/hal.vhd
+l0
+L92
+V48V=iMaYOzTUZHJ3K2S=P1
+R18
+31
+Z38 !s108 1430847543.049000
+Z39 !s90 -reportprogress|300|-93|-work|work|C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/hal.vhd|
+Z40 !s107 C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/hal.vhd|
+R22
+R23
+!s100 ]8h;=P_PlC;G8O?XbdL`j1
+!i10b 1
+Ahandler
+R9
+R10
+R13
+R14
+DEx4 work 3 hal 0 22 48V=iMaYOzTUZHJ3K2S=P1
+l124
+L103
+V_bUkmAig2@5YIOb;Qi0k90
+R18
+31
+R38
+R39
+R40
+R22
+R23
+!s100 HIE;I`j4gGYPZWd?9LD4O2
+!i10b 1
+Pisp_drv
+R10
+R6
+R7
+R9
+R13
+R14
+R24
+R15
+R31
+R32
+l0
+L39
+VD4>oGL11<kQQ;?gkcIOee0
+R18
+31
+R33
+R34
+R35
+R22
+R23
+!s100 4dW5LSDhdaZM16g2bGi863
+!i10b 1
+Pisp_hal
+R13
+R14
+R24
+R15
+R36
+R37
+l0
+L35
+V0K9]IBX;=nR@HM60nRCzN0
+R18
+31
+R38
+R39
+R40
+R22
+R23
+!s100 :zk=zXUB4WI6M_@>P]WgR1
+!i10b 1
+Pisp_inc
+R13
+R14
+R24
+R15
+8C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/isp_inc.vhd
+FC:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/isp_inc.vhd
+l0
+L34
+VK>ZzMXnLF@L3HTohllzA31
+R18
+31
+R22
+R23
+!s100 zDMS9FBn[QVHUH9z@PL3i0
+!i10b 1
+!s108 1430847542.428000
+!s90 -reportprogress|300|-93|-work|work|C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/isp_inc.vhd|
+!s107 C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/isp_inc.vhd|
+Emy_library
+Z41 w1426003626
+R2
+R11
+R12
+R13
+R14
+R15
+Z42 8C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/my_library.vhd
+Z43 FC:/Users/Admin/Documents/GitHub/Mestrado/VHDL/my_library.vhd
+l0
+L12
+VEJ2g6Y71NK:KD3d3[ChBd1
+R18
+31
+Z44 !s108 1430847548.285000
+Z45 !s90 -reportprogress|300|-93|-work|work|C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/my_library.vhd|
+Z46 !s107 C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/my_library.vhd|
+R22
+R23
+!s100 LJPOgQW^2R]j3=8RbekDo2
+!i10b 1
+Aa
+R2
+R11
+R12
+R13
+R14
+DEx4 work 10 my_library 0 22 EJ2g6Y71NK:KD3d3[ChBd1
+l20
+L18
+V3PT1T1VcB0RbN<;Fjc[lJ2
+R18
+31
+R44
+R45
+R46
+R22
+R23
+!s100 BBlNP@S[k^`^OBgfzVONJ3
+!i10b 1
+Ptypes
+R11
+R12
+R13
+R14
+w1425311910
+R15
+8C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/Types.vhd
+FC:/Users/Admin/Documents/GitHub/Mestrado/VHDL/Types.vhd
+l0
+L5
+VdTUD24QdCZn[c9=zJegU]2
+R18
+31
+R22
+R23
+!s100 G7ZR67A^?5:A7:UknMoUg2
+!i10b 1
+!s108 1430847545.195000
+!s90 -reportprogress|300|-93|-work|work|C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/Types.vhd|
+!s107 C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/Types.vhd|
+Pusb_inc
+R10
+R13
+R14
+R24
+R15
+Z47 8C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/usb_inc.vhd
+Z48 FC:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/usb_inc.vhd
+l0
+L36
+VML;fnXOI6CYPj3>4P;c^R0
+R18
+31
+b1
+Z49 !s108 1430847541.422000
+Z50 !s90 -reportprogress|300|-93|-work|work|C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/usb_inc.vhd|
+Z51 !s107 C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/usb/usb_inc.vhd|
+R22
+R23
+!s100 TPNl[IMn86LLH9;3hf@df2
+!i10b 1
+Bbody
+R6
+R10
+R13
+R14
+l0
+L190
+V>IzFQ3]o0cPle25>2SEII2
+R18
+31
+R49
+R50
+R51
+R22
+R23
+nbody
+!s100 1kZHSmBl8AfD[cGz5_[[S1
+!i10b 1

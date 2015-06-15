@@ -1,0 +1,14 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlib ieee_proposed
+vmap ieee_proposed ieee_proposed
+vcom -93 -work ieee_proposed {C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/fixed_float_types.vhdl}
+vcom -93 -work ieee_proposed {C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/fixed_pkg.vhdl}
+vcom -93 -work ieee_proposed {C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/float_pkg.vhdl}
+vcom -93 -work work {C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/DE2_CLOCK.vhd}
+

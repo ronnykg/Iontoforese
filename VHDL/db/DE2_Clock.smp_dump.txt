@@ -1,0 +1,134 @@
+
+State Machine - |DE2_CLOCK|next_command
+Name next_command.DISPLAY_CLEAR next_command.DISPLAY_OFF next_command.RESET3 next_command.HOLD next_command.RESET1 next_command.TOGGLE_E next_command.RETURN_HOME next_command.WRITE_CHAR3 next_command.WRITE_CHAR2 next_command.WRITE_CHAR1 next_command.MODE_SET next_command.DISPLAY_ON next_command.FUNC_SET next_command.RESET2 
+next_command.RESET2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+next_command.FUNC_SET 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+next_command.DISPLAY_ON 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+next_command.MODE_SET 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+next_command.WRITE_CHAR1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+next_command.WRITE_CHAR2 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+next_command.WRITE_CHAR3 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+next_command.RETURN_HOME 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+next_command.TOGGLE_E 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+next_command.RESET1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+next_command.HOLD 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+next_command.RESET3 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+next_command.DISPLAY_OFF 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+next_command.DISPLAY_CLEAR 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE2_CLOCK|state
+Name state.DISPLAY_CLEAR state.DISPLAY_OFF state.RESET3 state.RESET2 state.HOLD state.TOGGLE_E state.RETURN_HOME state.WRITE_CHAR3 state.WRITE_CHAR2 state.WRITE_CHAR1 state.MODE_SET state.DISPLAY_ON state.FUNC_SET state.RESET1 
+state.RESET1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.FUNC_SET 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.DISPLAY_ON 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.MODE_SET 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.WRITE_CHAR1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.WRITE_CHAR2 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.WRITE_CHAR3 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.RETURN_HOME 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.TOGGLE_E 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.HOLD 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.RESET2 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.RESET3 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.DISPLAY_OFF 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.DISPLAY_CLEAR 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE2_CLOCK|devreq:dvrq|r.state
+Name r.state.wait_ready r.state.set_addr r.state.stall r.state.zero r.state.conf_descr r.state.dev_descr r.state.decode r.state.idle 
+r.state.idle 0 0 0 0 0 0 0 0 
+r.state.decode 0 0 0 0 0 0 1 1 
+r.state.dev_descr 0 0 0 0 0 1 0 1 
+r.state.conf_descr 0 0 0 0 1 0 0 1 
+r.state.zero 0 0 0 1 0 0 0 1 
+r.state.stall 0 0 1 0 0 0 0 1 
+r.state.set_addr 0 1 0 0 0 0 0 1 
+r.state.wait_ready 1 0 0 0 0 0 0 1 
+
+State Machine - |DE2_CLOCK|drv:d|r.st.irq
+Name r.st.irq.TxLoadDone r.st.irq.TxLoads2 r.st.irq.TxLoads1 r.st.irq.TxLoads r.st.irq.ep1_out5 r.st.irq.ep1_out4 r.st.irq.ep1_out3 r.st.irq.ep1_out2 r.st.irq.ep1_out1 r.st.irq.ep1_out r.st.irq.idev_req r.st.irq.ctrl7 r.st.irq.ctrl6 r.st.irq.ctrl5 r.st.irq.ctrl4 r.st.irq.ctrl3 r.st.irq.ctrl2 r.st.irq.ctrl1 r.st.irq.ctrl r.st.irq.bus_reset r.st.irq.ep0_out2 r.st.irq.ep0_out1 r.st.irq.ep0_out r.st.irq.serve_irq3 r.st.irq.serve_irq2 r.st.irq.serve_irq1 r.st.irq.serve_irq r.st.irq.wait_irq r.st.irq.reset_irq 
+r.st.irq.reset_irq 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+r.st.irq.wait_irq 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+r.st.irq.serve_irq 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+r.st.irq.serve_irq1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+r.st.irq.serve_irq2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+r.st.irq.serve_irq3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+r.st.irq.ep0_out 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+r.st.irq.ep0_out1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+r.st.irq.ep0_out2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+r.st.irq.bus_reset 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+r.st.irq.ctrl 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ctrl1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ctrl2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ctrl3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ctrl4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ctrl5 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ctrl6 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ctrl7 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.idev_req 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ep1_out 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ep1_out1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ep1_out2 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ep1_out3 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ep1_out4 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.ep1_out5 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.TxLoads 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.TxLoads1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.TxLoads2 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.irq.TxLoadDone 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE2_CLOCK|drv:d|r.st.global
+Name r.st.global.gdev_req r.st.global.handle_irq r.st.global.configure 
+r.st.global.configure 0 0 0 
+r.st.global.handle_irq 0 1 1 
+r.st.global.gdev_req 1 0 1 
+
+State Machine - |DE2_CLOCK|drv:d|r.st.cfg
+Name r.st.cfg.cfg_complete r.st.cfg.cfg34 r.st.cfg.cfg33 r.st.cfg.cfg32 r.st.cfg.cfg31 r.st.cfg.cfg30 r.st.cfg.cfg29 r.st.cfg.cfg28 r.st.cfg.cfg27 r.st.cfg.cfg26 r.st.cfg.cfg25 r.st.cfg.cfg24 r.st.cfg.cfg23 r.st.cfg.cfg22 r.st.cfg.cfg21 r.st.cfg.cfg20 r.st.cfg.cfg19 r.st.cfg.cfg18 r.st.cfg.cfg17 r.st.cfg.cfg16 r.st.cfg.cfg15 r.st.cfg.cfg14 r.st.cfg.cfg13 r.st.cfg.cfg12 r.st.cfg.cfg11 r.st.cfg.cfg10 r.st.cfg.cfg9 r.st.cfg.cfg8 r.st.cfg.cfg7 r.st.cfg.cfg6 r.st.cfg.cfg5 r.st.cfg.cfg4 r.st.cfg.cfg3 r.st.cfg.cfg2 r.st.cfg.cfg1 r.st.cfg.cfg 
+r.st.cfg.cfg 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+r.st.cfg.cfg1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+r.st.cfg.cfg2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+r.st.cfg.cfg3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+r.st.cfg.cfg4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+r.st.cfg.cfg5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+r.st.cfg.cfg6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+r.st.cfg.cfg7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+r.st.cfg.cfg8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg11 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg14 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg15 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg18 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg19 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg20 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg21 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg22 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg23 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg24 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg25 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg26 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg27 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg28 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg29 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg30 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg31 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg32 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg33 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg34 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r.st.cfg.cfg_complete 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE2_CLOCK|hal:h|r.state
+Name r.state.readA_st r.state.read_st r.state.idleB_st r.state.idleA_st r.state.writeB_st r.state.writeA_st r.state.write_st r.state.idle_st r.state.reset_st 
+r.state.reset_st 0 0 0 0 0 0 0 0 0 
+r.state.idle_st 0 0 0 0 0 0 0 1 1 
+r.state.write_st 0 0 0 0 0 0 1 0 1 
+r.state.writeA_st 0 0 0 0 0 1 0 0 1 
+r.state.writeB_st 0 0 0 0 1 0 0 0 1 
+r.state.idleA_st 0 0 0 1 0 0 0 0 1 
+r.state.idleB_st 0 0 1 0 0 0 0 0 1 
+r.state.read_st 0 1 0 0 0 0 0 0 1 
+r.state.readA_st 1 0 0 0 0 0 0 0 1 
