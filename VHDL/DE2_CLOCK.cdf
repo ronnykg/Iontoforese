@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C35F672) Path("C:/Users/Admin/Documents/GitHub/Mestrado/VHDL/") File("DE2_Clock.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C35F672) Path("C:/Users/Admin/Documents/Mestrado-github/Iontoforese/VHDL/") File("DE2_Clock.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -1,5 +1,5 @@
 Flow report for DE2_Clock
-Tue May 26 17:12:54 2015
+Mon Jul 06 15:21:19 2015
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
 
 
@@ -40,21 +40,21 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue May 26 17:12:54 2015       ;
+; Flow Status                        ; Successful - Mon Jul 06 15:21:19 2015       ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
 ; Revision Name                      ; DE2_Clock                                   ;
 ; Top-level Entity Name              ; DE2_CLOCK                                   ;
 ; Family                             ; Cyclone II                                  ;
 ; Device                             ; EP2C35F672C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 22,625 / 33,216 ( 68 % )                    ;
-;     Total combinational functions  ; 22,537 / 33,216 ( 68 % )                    ;
-;     Dedicated logic registers      ; 450 / 33,216 ( 1 % )                        ;
-; Total registers                    ; 450                                         ;
+; Total logic elements               ; 560 / 33,216 ( 2 % )                        ;
+;     Total combinational functions  ; 488 / 33,216 ( 1 % )                        ;
+;     Dedicated logic registers      ; 416 / 33,216 ( 1 % )                        ;
+; Total registers                    ; 416                                         ;
 ; Total pins                         ; 150 / 475 ( 32 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                         ;
-; Embedded Multiplier 9-bit elements ; 12 / 70 ( 17 % )                            ;
+; Embedded Multiplier 9-bit elements ; 0 / 70 ( 0 % )                              ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/26/2015 16:54:05 ;
+; Start date & time ; 07/06/2015 15:20:42 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE2_Clock           ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+-----------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                         ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+-----------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 33560313590713.143267004504904                ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 33560313590713.143620684107592                ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                           ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                   ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)                     ; <None>        ; --          ; --             ;
@@ -92,12 +92,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:15:26     ; 1.0                     ; 795 MB              ; 00:15:11                           ;
-; Fitter                    ; 00:02:40     ; 1.0                     ; 896 MB              ; 00:02:35                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 495 MB              ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:06     ; 1.0                     ; 641 MB              ; 00:00:06                           ;
-; EDA Netlist Writer        ; 00:00:18     ; 1.0                     ; 573 MB              ; 00:00:16                           ;
-; Total                     ; 00:18:35     ; --                      ; --                  ; 00:18:13                           ;
+; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 667 MB              ; 00:00:15                           ;
+; Fitter                    ; 00:00:11     ; 1.0                     ; 779 MB              ; 00:00:11                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 447 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 471 MB              ; 00:00:03                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 411 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:34     ; --                      ; --                  ; 00:00:33                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

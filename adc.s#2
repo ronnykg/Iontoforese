@@ -2755,25 +2755,25 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="SUPPLY5" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY6" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY7" library="supply2" deviceset="VDD" device=""/>
-<part name="C1" library="eagle-ltspice" deviceset="C" device="C0603" value="10nf"/>
-<part name="C2" library="eagle-ltspice" deviceset="C" device="C0603" value="10uf"/>
+<part name="C1" library="eagle-ltspice" deviceset="C" device="C0603" value="100nf"/>
+<part name="C2" library="eagle-ltspice" deviceset="C" device="C0603" value="4.7uf"/>
 <part name="SUPPLY15" library="supply2" deviceset="GND" device=""/>
-<part name="C3" library="eagle-ltspice" deviceset="C" device="C0603" value="10nf"/>
-<part name="C4" library="eagle-ltspice" deviceset="C" device="C0603" value="10uf"/>
+<part name="C3" library="eagle-ltspice" deviceset="C" device="C0603" value="100nf"/>
+<part name="C4" library="eagle-ltspice" deviceset="C" device="C0603" value="4.7uf"/>
 <part name="JP1" library="jumper" deviceset="JP2E" device=""/>
 <part name="JP2" library="jumper" deviceset="JP2E" device=""/>
 <part name="JP3" library="jumper" deviceset="JP2E" device=""/>
 <part name="SUPPLY17" library="supply2" deviceset="VDD" device=""/>
-<part name="C5" library="eagle-ltspice" deviceset="C" device="C0603" value="10nf"/>
+<part name="C5" library="eagle-ltspice" deviceset="C" device="C0603" value="1pf"/>
 <part name="U$1" library="SparkFun" deviceset="POT" device="100K_3362U"/>
-<part name="R1" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R2" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="C6" library="eagle-ltspice" deviceset="C" device="C0603" value="10nf"/>
-<part name="C7" library="eagle-ltspice" deviceset="C" device="C0603" value="10nf"/>
-<part name="R3" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R4" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="C8" library="eagle-ltspice" deviceset="C" device="C0603" value="10nf"/>
-<part name="C9" library="eagle-ltspice" deviceset="C" device="C0603" value="10nf"/>
+<part name="R1" library="SparkFun" deviceset="RESISTOR" device="0603" value="1.5k"/>
+<part name="R2" library="SparkFun" deviceset="RESISTOR" device="0603" value="3.3k"/>
+<part name="C6" library="eagle-ltspice" deviceset="C" device="C0603" value="10pf"/>
+<part name="C7" library="eagle-ltspice" deviceset="C" device="C0603" value="10pf"/>
+<part name="R3" library="SparkFun" deviceset="RESISTOR" device="0603" value="1.5k"/>
+<part name="R4" library="SparkFun" deviceset="RESISTOR" device="0603" value="3.3k"/>
+<part name="C8" library="eagle-ltspice" deviceset="C" device="C0603" value="10pf"/>
+<part name="C9" library="eagle-ltspice" deviceset="C" device="C0603" value="10pf"/>
 <part name="SUPPLY22" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY23" library="supply2" deviceset="GND" device=""/>
 <part name="R6" library="SparkFun" deviceset="RESISTOR" device="0603"/>
@@ -2793,21 +2793,19 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="R18" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R19" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="SUPPLY26" library="supply2" deviceset="GND" device=""/>
-<part name="SUPPLY27" library="supply2" deviceset="GND" device=""/>
 <part name="U4" library="ADI-Phase-2" deviceset="ADV7173KSTZ" device=""/>
 <part name="SUPPLY30" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY31" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY35" library="supply2" deviceset="VDD" device=""/>
-<part name="SUPPLY37" library="supply2" deviceset="GND" device=""/>
 <part name="C10" library="eagle-ltspice" deviceset="C" device="C0603" value="10nf"/>
 <part name="C11" library="eagle-ltspice" deviceset="C" device="C0603" value="10uf"/>
 <part name="SUPPLY39" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY40" library="supply2" deviceset="VDD" device=""/>
 <part name="C12" library="eagle-ltspice" deviceset="C" device="C0603" value="10nf"/>
 <part name="C13" library="eagle-ltspice" deviceset="C" device="C0603" value="10uf"/>
-<part name="R20" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R21" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R22" library="SparkFun" deviceset="RESISTOR" device="0603"/>
+<part name="R20" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
+<part name="R21" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
+<part name="R22" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
 <part name="SUPPLY42" library="supply2" deviceset="GND" device=""/>
 <part name="IC6" library="40xx" deviceset="4051" device="D"/>
 <part name="R23" library="SparkFun" deviceset="RESISTOR" device="0603"/>
@@ -2897,7 +2895,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="SUPPLY13" library="supply2" deviceset="VDD" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="SUPPLY20" library="supply2" deviceset="VDD" device=""/>
-<part name="R48" library="SparkFun" deviceset="RESISTOR" device="0603"/>
+<part name="R48" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
 <part name="R5" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R49" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R51" library="SparkFun" deviceset="RESISTOR" device="0603"/>
@@ -2910,10 +2908,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="R56" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R57" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R33" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="SUPPLY21" library="supply2" deviceset="GND" device=""/>
-<part name="SUPPLY24" library="supply2" deviceset="GND" device=""/>
-<part name="SUPPLY28" library="supply2" deviceset="GND" device=""/>
-<part name="SUPPLY29" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY32" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2926,7 +2921,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="SUPPLY3" gate="G$1" x="294.64" y="137.16" rot="R270"/>
 <instance part="SUPPLY4" gate="G$1" x="426.72" y="106.68" rot="R270"/>
 <instance part="SUPPLY5" gate="G$1" x="426.72" y="101.6" rot="R270"/>
-<instance part="SUPPLY6" gate="G$1" x="365.76" y="114.3" rot="R90"/>
+<instance part="SUPPLY6" gate="G$1" x="368.3" y="114.3" rot="R90"/>
 <instance part="SUPPLY7" gate="G$1" x="355.6" y="93.98" rot="R90"/>
 <instance part="C1" gate="G$1" x="355.6" y="43.18" rot="R180"/>
 <instance part="C2" gate="G$1" x="363.22" y="43.18" rot="R180"/>
@@ -2966,12 +2961,10 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="R18" gate="G$1" x="452.12" y="154.94" rot="R180"/>
 <instance part="R19" gate="G$1" x="457.2" y="149.86" rot="R270"/>
 <instance part="SUPPLY26" gate="GND" x="457.2" y="142.24"/>
-<instance part="SUPPLY27" gate="GND" x="370.84" y="60.96" rot="R270"/>
 <instance part="U4" gate="A" x="581.66" y="88.9"/>
 <instance part="SUPPLY30" gate="G$1" x="609.6" y="106.68" rot="R270"/>
 <instance part="SUPPLY31" gate="G$1" x="609.6" y="111.76" rot="R270"/>
 <instance part="SUPPLY35" gate="G$1" x="553.72" y="119.38" rot="R90"/>
-<instance part="SUPPLY37" gate="GND" x="553.72" y="66.04" rot="R270"/>
 <instance part="C10" gate="G$1" x="541.02" y="48.26" rot="R180"/>
 <instance part="C11" gate="G$1" x="548.64" y="48.26" rot="R180"/>
 <instance part="SUPPLY39" gate="GND" x="543.56" y="55.88" rot="R180"/>
@@ -3014,7 +3007,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="P+11" gate="1" x="561.34" y="185.42" rot="R90"/>
 <instance part="P+12" gate="1" x="670.56" y="185.42" rot="R90"/>
 <instance part="P+13" gate="1" x="452.12" y="180.34" rot="R90"/>
-<instance part="SUPPLY49" gate="GND" x="294.64" y="215.9" rot="R270"/>
+<instance part="SUPPLY49" gate="GND" x="292.1" y="215.9" rot="R270"/>
 <instance part="U5" gate="A" x="426.72" y="226.06"/>
 <instance part="U6" gate="A" x="535.94" y="231.14"/>
 <instance part="U7" gate="A" x="645.16" y="231.14"/>
@@ -3070,7 +3063,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="SUPPLY14" gate="G$1" x="538.48" y="45.72" rot="R90"/>
 <instance part="SUPPLY16" gate="G$1" x="553.72" y="33.02" rot="R90"/>
 <instance part="SUPPLY18" gate="G$1" x="553.72" y="127" rot="R90"/>
-<instance part="SUPPLY19" gate="G$1" x="353.06" y="121.92" rot="R90"/>
+<instance part="SUPPLY19" gate="G$1" x="368.3" y="121.92" rot="R90"/>
 <instance part="P+1" gate="1" x="477.52" y="71.12" rot="R180"/>
 <instance part="SUPPLY13" gate="G$1" x="454.66" y="71.12" rot="R180"/>
 <instance part="P+2" gate="1" x="660.4" y="76.2" rot="R180"/>
@@ -3088,10 +3081,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="R56" gate="G$1" x="678.18" y="259.08" rot="R90"/>
 <instance part="R57" gate="G$1" x="675.64" y="236.22" rot="R270"/>
 <instance part="R33" gate="G$1" x="617.22" y="228.6" rot="R270"/>
-<instance part="SUPPLY21" gate="GND" x="553.72" y="58.42" rot="R270"/>
-<instance part="SUPPLY24" gate="GND" x="370.84" y="53.34" rot="R270"/>
-<instance part="SUPPLY28" gate="GND" x="609.6" y="119.38" rot="R90"/>
-<instance part="SUPPLY29" gate="GND" x="424.18" y="116.84" rot="R180"/>
+<instance part="SUPPLY32" gate="GND" x="556.26" y="104.14" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -3119,14 +3109,6 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <segment>
 <pinref part="R19" gate="G$1" pin="2"/>
 <pinref part="SUPPLY26" gate="GND" pin="GND"/>
-</segment>
-<segment>
-<pinref part="U1" gate="A" pin="-INA"/>
-<pinref part="SUPPLY27" gate="GND" pin="GND"/>
-</segment>
-<segment>
-<pinref part="U4" gate="A" pin="-INA"/>
-<pinref part="SUPPLY37" gate="GND" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C11" gate="G$1" pin="2"/>
@@ -3314,20 +3296,12 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U4" gate="A" pin="VREF_OUT"/>
-<pinref part="SUPPLY21" gate="GND" pin="GND"/>
+<pinref part="U4" gate="A" pin="GND_("/>
+<pinref part="SUPPLY32" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="VREF_OUT"/>
-<pinref part="SUPPLY24" gate="GND" pin="GND"/>
-</segment>
-<segment>
-<pinref part="U4" gate="A" pin="-IN_B"/>
-<pinref part="SUPPLY28" gate="GND" pin="GND"/>
-</segment>
-<segment>
-<pinref part="U1" gate="A" pin="-IN_B"/>
-<pinref part="SUPPLY29" gate="GND" pin="GND"/>
+<pinref part="U2" gate="A" pin="+INA"/>
+<pinref part="SUPPLY49" gate="GND" pin="GND"/>
 </segment>
 </net>
 <net name="VDD" class="0">
@@ -3346,7 +3320,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <segment>
 <pinref part="U1" gate="A" pin="VDD1"/>
 <pinref part="SUPPLY6" gate="G$1" pin="VDD"/>
-<wire x1="368.3" y1="114.3" x2="373.38" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="114.3" x2="373.38" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="A" pin="VDD2"/>
@@ -3457,7 +3431,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <segment>
 <pinref part="SUPPLY19" gate="G$1" pin="VCC"/>
 <pinref part="U1" gate="A" pin="VD1"/>
-<wire x1="355.6" y1="121.92" x2="373.38" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="121.92" x2="373.38" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CH_A(ADC)" class="0">
@@ -4813,6 +4787,31 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <pinref part="IC13" gate="A" pin="X"/>
 <wire x1="675.64" y1="241.3" x2="695.96" y2="241.3" width="0.1524" layer="91"/>
 <wire x1="695.96" y1="241.3" x2="695.96" y2="208.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$109" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="-INA"/>
+<wire x1="358.14" y1="60.96" x2="373.38" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="-IN_B"/>
+<wire x1="424.18" y1="114.3" x2="401.32" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="401.32" y1="114.3" x2="401.32" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="373.38" y1="60.96" x2="401.32" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="401.32" y1="60.96" x2="401.32" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="VREF_OUT"/>
+<wire x1="401.32" y1="53.34" x2="373.38" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$123" class="0">
+<segment>
+<pinref part="U4" gate="A" pin="-IN_B"/>
+<wire x1="607.06" y1="119.38" x2="576.58" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="576.58" y1="119.38" x2="576.58" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U4" gate="A" pin="-INA"/>
+<wire x1="556.26" y1="66.04" x2="576.58" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="576.58" y1="66.04" x2="576.58" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="U4" gate="A" pin="VREF_OUT"/>
+<wire x1="576.58" y1="58.42" x2="556.26" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

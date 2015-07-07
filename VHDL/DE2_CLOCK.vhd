@@ -57,11 +57,11 @@ ARCHITECTURE a OF DE2_CLOCK IS
 	SIGNAL DATA_BUS_VALUE: STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL CLK_COUNT_400HZ: STD_LOGIC_VECTOR(19 DOWNTO 0);
 	SIGNAL CLK_COUNT_10HZ: STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SIGNAL CLK_COUNT_12MHZ: STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL CLK_COUNT_2MHZ: STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL BCD_SECD0,BCD_SECD1,BCD_MIND0,BCD_MIND1: STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL BCD_HRD0,BCD_HRD1,BCD_TSEC: STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL DAC_SIGNAL: memoryDAC(0 to 10) := ((others=> (others=>'0')));
-	SIGNAL CLK_400HZ, CLK_10HZ, CLK_12MHZ : STD_LOGIC;
+	SIGNAL CLK_400HZ, CLK_10HZ, CLK_2MHZ : STD_LOGIC;
 	SIGNAL ADC1, ADC2, ADC3: memoryint(0 to 9) := ((others=> (others=>'0'))); --(3999999 downto 0);
 	--SIGNAL ADC1: memoryDAC(24999 downto 0) := ((others=> (others=>'0'))); --(3999999 downto 0);
 	--SIGNAL FREQ_DIV: INTEGER RANGE 40 to 400000;
@@ -110,9 +110,9 @@ DAC_SIGNAL => DAC_SIGNAL,
 RESET => RESET
 );
 
-	--(GPIO0 (21), GPIO0 (19),GPIO0 (17)) <= ADC1_AVC; OK
-	--(GPIO1 (22), GPIO1 (20),GPIO1 (18)) <= ADC2_AVC; --(GPIO1 (13), GPIO1 (15),GPIO1 (17)) <= ADC2_AVC;
-   --(GPIO1 (14), GPIO1 (12),GPIO1 (10)) <= ADC3_AVC;--(GPIO1 (21), GPIO1 (23),GPIO1 (25)) <= ADC3_AVC;
+	(GPIO0 (13), GPIO0 (15),GPIO0 (17)) <= ADC1_AVC; --OK
+	(GPIO1 (19), GPIO1 (21),GPIO1 (23)) <= ADC2_AVC; --(GPIO1 (22), GPIO1 (20),GPIO1 (18)) <= ADC2_AVC; --
+   (GPIO1 (11), GPIO1 (13),GPIO1 (15)) <= ADC3_AVC; -- (GPIO1 (14), GPIO1 (12),GPIO1 (10)) <= ADC3_AVC;--
 	LCD_ON <= '1';
 	RESET_LED <= NOT RESET;
 	SEC_LED <= BCD_SECD0(0);
@@ -145,7 +145,8 @@ RESET => RESET
 	ADC2(7) <= to_float(5.423,realW(0));
 	ADC2(8) <= to_float(5.071,realW(0));
 	ADC2(9) <= to_float(5.159,realW(0));	
-	GPIO0 (12) <= '0'; --CS = 0 Enable DAC
+	GPIO0 (12) <= '0'; --CS = 0 Enable DAC	
+   GPIO1 (8) <= CLK_2MHZ; --DCLK ADC
 -------------------------------USB------------------------------	
 --DE2 USB config
 OTG_FSPEED  <='0';            -- 0 = Enable, Z = Disable 
@@ -153,7 +154,6 @@ OTG_LSPEED  <='Z';            -- 0 = Enable, Z = Disable
 
 --DE2 clock and reset config
 clk <= clk_50Mhz;
-
 p_reset: process
 begin
   wait until rising_edge(clk);
@@ -223,12 +223,12 @@ begin
 			when others => dummy_std := "0000000000010000";--
 	   end case;
 		case a is 
-			when 0 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= dummy_std;--"0000000000000011";--			
+			when others => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= dummy_std;--"0000000000000011";--			
 			k := k+1;
-			when 1 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= "00000000" & IMP_DUMMY(0);--"0000000000000011";--
-			when 2 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= "00000000" & IMP_DUMMY(1);--"0000000000000011";--
-			when others => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= "00000000" & IMP_DUMMY(2);--"0000000000000011";--
-			--when others => dummy_std <= "0000000000010000";--
+			--when 1 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= "00000000" & IMP_DUMMY(0);--"0000000000000011";--
+			--when 2 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= "00000000" & IMP_DUMMY(1);--"0000000000000011";--
+			--when others => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= "00000000" & IMP_DUMMY(2);--"0000000000000011";--
+			
 	   end case;
 		
 --	   if a =0 then
@@ -306,6 +306,21 @@ end process;
 				END IF;
 		END IF;
 	END PROCESS;
+	  PROCESS	
+	BEGIN
+	 WAIT UNTIL CLK_50MHZ'EVENT AND CLK_50MHZ = '1';
+		IF RESET = '0' THEN
+		 CLK_COUNT_2MHZ <= X"00";
+		 CLK_2MHZ <= '0';
+		ELSE
+				IF CLK_COUNT_2MHZ < x"0A" THEN 
+				 CLK_COUNT_2MHZ <= CLK_COUNT_2MHZ + 1;
+				ELSE
+		    	 CLK_COUNT_2MHZ <= X"00";
+				 CLK_2MHZ <= NOT CLK_2MHZ;
+				END IF;
+		END IF;
+  END PROCESS;
 	PROCESS (CLK_400HZ, reset)
 	BEGIN
 		IF reset = '0' THEN
@@ -520,21 +535,7 @@ end process;
 	  END IF;
 	END IF;
  END PROCESS;
-  PROCESS	
-	BEGIN
-	 WAIT UNTIL CLK_50MHZ'EVENT AND CLK_50MHZ = '1';
-		IF RESET = '0' THEN
-		 CLK_COUNT_12MHZ <= X"00";
-		 CLK_12MHZ <= '0';
-		ELSE
-				IF CLK_COUNT_12MHZ < 4 THEN 
-				 CLK_COUNT_12MHZ <= CLK_COUNT_12MHZ + 1;
-				ELSE
-		    	 CLK_COUNT_12MHZ <= X"00";
-				 CLK_12MHZ <= NOT CLK_12MHZ;
-				END IF;
-		END IF;
-  END PROCESS;
+
 	PROCESS --(CLK_12MHZ, reset) --it enter in the rising and falling edge, the freq is acctually 6,25Mhz
 	VARIABLE d1_1: float (float_exponent_width downto -float_fraction_width) := (others=>'0');
 	VARIABLE d1_2: float (float_exponent_width downto -float_fraction_width) := (others=>'0');
@@ -639,10 +640,10 @@ end process;
 --		END IF;
 --END PROCESS;
 	
-PROCESS	(CLK_12MHZ, reset)
+PROCESS	(CLK_2MHZ, reset)
 	BEGIN
 	    IF RESET = '0' THEN
-		 (GPIO0 (10), GPIO0 (8),GPIO0 (6),GPIO0 (4),GPIO0 (2),GPIO0 (0),GPIO0 (1),GPIO0 (3),GPIO0 (5),GPIO0 (7),GPIO0 (9),GPIO0 (11)) <= conv_std_logic_vector(0,12); --OK
+		 (GPIO0 (10), GPIO0 (8),GPIO0 (6),GPIO0 (4),GPIO0 (2),GPIO0 (0),GPIO0 (1),GPIO0 (3),GPIO0 (5),GPIO0 (7),GPIO0 (9),GPIO0 (11)) <= conv_std_logic_vector(2048,12); --OK
 		 COUNT_DAC <= 0;
 		 ELSE --IF CLK_12MHZ'EVENT AND CLK_12MHZ = '1' THEN
 			COUNT_DAC <= COUNT_DAC +1;
@@ -650,7 +651,7 @@ PROCESS	(CLK_12MHZ, reset)
 				COUNT_DAC <= 0;
 			END IF;
 			--(GPIO0 (25), GPIO0 (27),GPIO0 (29),GPIO0 (31),GPIO0 (33),GPIO0 (35),GPIO0 (34),GPIO0 (32),GPIO0 (30),GPIO0 (28),GPIO0 (26),GPIO0 (24)) <= DAC_SIGNAL(COUNT_DAC);
-			(GPIO0 (10), GPIO0 (8),GPIO0 (6),GPIO0 (4),GPIO0 (2),GPIO0 (0),GPIO0 (1),GPIO0 (3),GPIO0 (5),GPIO0 (7),GPIO0 (9),GPIO0 (11)) <= conv_std_logic_vector(1023,12); --OK
+			(GPIO0 (10), GPIO0 (8),GPIO0 (6),GPIO0 (4),GPIO0 (2),GPIO0 (0),GPIO0 (1),GPIO0 (3),GPIO0 (5),GPIO0 (7),GPIO0 (9),GPIO0 (11)) <= conv_std_logic_vector(2048,12); --OK
 		END IF;
 END PROCESS;
 END a;
