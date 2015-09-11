@@ -2771,8 +2771,8 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="R14" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R15" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R16" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R18" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R19" library="SparkFun" deviceset="RESISTOR" device="0603"/>
+<part name="R18" library="SparkFun" deviceset="RESISTOR" device="0603" value="30K"/>
+<part name="R19" library="SparkFun" deviceset="RESISTOR" device="0603" value="3,3K"/>
 <part name="U4" library="ADI-Phase-2" deviceset="ADV7173KSTZ" device=""/>
 <part name="SUPPLY30" library="supply2" deviceset="VDD" device=""/>
 <part name="SUPPLY31" library="supply2" deviceset="VDD" device=""/>
@@ -2796,8 +2796,8 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="R28" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R29" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R30" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R31" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R32" library="SparkFun" deviceset="RESISTOR" device="0603"/>
+<part name="R31" library="SparkFun" deviceset="RESISTOR" device="0603" value="30k"/>
+<part name="R32" library="SparkFun" deviceset="RESISTOR" device="0603" value="3,3k"/>
 <part name="R34" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R35" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R36" library="SparkFun" deviceset="RESISTOR" device="0603"/>
@@ -2811,8 +2811,8 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="R42" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R43" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R44" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R45" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R46" library="SparkFun" deviceset="RESISTOR" device="0603"/>
+<part name="R45" library="SparkFun" deviceset="RESISTOR" device="0603" value="30k"/>
+<part name="R46" library="SparkFun" deviceset="RESISTOR" device="0603" value="3,3k"/>
 <part name="SV1" library="con-lstb" deviceset="MA20-2" device=""/>
 <part name="U5" library="Analog Devices_By_element14_Batch_1" deviceset="AD5308ARUZ" device=""/>
 <part name="U6" library="Analog Devices_By_element14_Batch_1" deviceset="AD5308ARUZ" device=""/>
@@ -2870,18 +2870,18 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="SUPPLY20" library="supply2" deviceset="VDD" device=""/>
 <part name="R48" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
-<part name="R5" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R49" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R51" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R53" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R17" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R50" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R52" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R54" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R55" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R56" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R57" library="SparkFun" deviceset="RESISTOR" device="0603"/>
-<part name="R33" library="SparkFun" deviceset="RESISTOR" device="0603"/>
+<part name="R5" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
+<part name="R49" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
+<part name="R51" library="SparkFun" deviceset="RESISTOR" device="0603" value="30K"/>
+<part name="R53" library="SparkFun" deviceset="RESISTOR" device="0603" value="3,3K"/>
+<part name="R17" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
+<part name="R50" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
+<part name="R52" library="SparkFun" deviceset="RESISTOR" device="0603" value="30k"/>
+<part name="R54" library="SparkFun" deviceset="RESISTOR" device="0603" value="3,3k"/>
+<part name="R55" library="SparkFun" deviceset="RESISTOR" device="0603" value="30k"/>
+<part name="R56" library="SparkFun" deviceset="RESISTOR" device="0603" value="3,3k"/>
+<part name="R57" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
+<part name="R33" library="SparkFun" deviceset="RESISTOR" device="0603" value="10k"/>
 <part name="SUPPLY32" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY21" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY24" library="supply2" deviceset="GND" device=""/>
@@ -3465,6 +3465,9 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <pinref part="U4" gate="A" pin="VREF_A"/>
 <wire x1="373.38" y1="55.88" x2="551.18" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="X2" gate="-3" pin="KL"/>
+<junction x="551.18" y="55.88"/>
+<junction x="368.3" y="55.88"/>
+<junction x="373.38" y="55.88"/>
 </segment>
 </net>
 <net name="S1" class="0">

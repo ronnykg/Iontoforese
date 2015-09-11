@@ -2914,6 +2914,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="SUPPLY24" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY28" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY29" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY32" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2926,7 +2927,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="SUPPLY3" gate="G$1" x="294.64" y="137.16" rot="R270"/>
 <instance part="SUPPLY4" gate="G$1" x="426.72" y="106.68" rot="R270"/>
 <instance part="SUPPLY5" gate="G$1" x="426.72" y="101.6" rot="R270"/>
-<instance part="SUPPLY6" gate="G$1" x="365.76" y="114.3" rot="R90"/>
+<instance part="SUPPLY6" gate="G$1" x="368.3" y="114.3" rot="R90"/>
 <instance part="SUPPLY7" gate="G$1" x="355.6" y="93.98" rot="R90"/>
 <instance part="C1" gate="G$1" x="355.6" y="43.18" rot="R180"/>
 <instance part="C2" gate="G$1" x="363.22" y="43.18" rot="R180"/>
@@ -2966,7 +2967,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="R18" gate="G$1" x="452.12" y="154.94" rot="R180"/>
 <instance part="R19" gate="G$1" x="457.2" y="149.86" rot="R270"/>
 <instance part="SUPPLY26" gate="GND" x="457.2" y="142.24"/>
-<instance part="SUPPLY27" gate="GND" x="370.84" y="60.96" rot="R270"/>
+<instance part="SUPPLY27" gate="GND" x="355.6" y="60.96" rot="R270"/>
 <instance part="U4" gate="A" x="581.66" y="88.9"/>
 <instance part="SUPPLY30" gate="G$1" x="609.6" y="106.68" rot="R270"/>
 <instance part="SUPPLY31" gate="G$1" x="609.6" y="111.76" rot="R270"/>
@@ -3070,7 +3071,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="SUPPLY14" gate="G$1" x="538.48" y="45.72" rot="R90"/>
 <instance part="SUPPLY16" gate="G$1" x="553.72" y="33.02" rot="R90"/>
 <instance part="SUPPLY18" gate="G$1" x="553.72" y="127" rot="R90"/>
-<instance part="SUPPLY19" gate="G$1" x="353.06" y="121.92" rot="R90"/>
+<instance part="SUPPLY19" gate="G$1" x="368.3" y="121.92" rot="R90"/>
 <instance part="P+1" gate="1" x="477.52" y="71.12" rot="R180"/>
 <instance part="SUPPLY13" gate="G$1" x="454.66" y="71.12" rot="R180"/>
 <instance part="P+2" gate="1" x="660.4" y="76.2" rot="R180"/>
@@ -3092,6 +3093,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="SUPPLY24" gate="GND" x="370.84" y="53.34" rot="R270"/>
 <instance part="SUPPLY28" gate="GND" x="609.6" y="119.38" rot="R90"/>
 <instance part="SUPPLY29" gate="GND" x="424.18" y="116.84" rot="R180"/>
+<instance part="SUPPLY32" gate="GND" x="556.26" y="104.14" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -3123,6 +3125,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <segment>
 <pinref part="U1" gate="A" pin="-INA"/>
 <pinref part="SUPPLY27" gate="GND" pin="GND"/>
+<wire x1="358.14" y1="60.96" x2="373.38" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U4" gate="A" pin="-INA"/>
@@ -3329,6 +3332,10 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <pinref part="U1" gate="A" pin="-IN_B"/>
 <pinref part="SUPPLY29" gate="GND" pin="GND"/>
 </segment>
+<segment>
+<pinref part="U4" gate="A" pin="GND_("/>
+<pinref part="SUPPLY32" gate="GND" pin="GND"/>
+</segment>
 </net>
 <net name="VDD" class="0">
 <segment>
@@ -3346,7 +3353,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <segment>
 <pinref part="U1" gate="A" pin="VDD1"/>
 <pinref part="SUPPLY6" gate="G$1" pin="VDD"/>
-<wire x1="368.3" y1="114.3" x2="373.38" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="114.3" x2="373.38" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="A" pin="VDD2"/>
@@ -3457,7 +3464,7 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <segment>
 <pinref part="SUPPLY19" gate="G$1" pin="VCC"/>
 <pinref part="U1" gate="A" pin="VD1"/>
-<wire x1="355.6" y1="121.92" x2="373.38" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="121.92" x2="373.38" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CH_A(ADC)" class="0">

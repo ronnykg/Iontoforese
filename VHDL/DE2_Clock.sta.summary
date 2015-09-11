@@ -2,41 +2,61 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow Model Setup 'CLK_1MHZ'
+Slack : -683.111
+TNS   : -7685.620
+
 Type  : Slow Model Setup 'clk_50Mhz'
-Slack : -4.348
-TNS   : -572.175
+Slack : -4.580
+TNS   : -641.297
 
 Type  : Slow Model Setup 'CLK_400HZ'
-Slack : -1.181
-TNS   : -24.265
+Slack : -1.289
+TNS   : -23.863
+
+Type  : Slow Model Setup 'CLK_2MHZ'
+Slack : -0.957
+TNS   : -2.465
 
 Type  : Slow Model Setup 'CLK_10HZ'
 Slack : -0.866
-TNS   : -4.580
-
-Type  : Slow Model Hold 'clk_50Mhz'
-Slack : -2.541
-TNS   : -2.541
+TNS   : -4.583
 
 Type  : Slow Model Hold 'CLK_400HZ'
-Slack : -2.153
-TNS   : -2.153
+Slack : -2.917
+TNS   : -2.917
+
+Type  : Slow Model Hold 'clk_50Mhz'
+Slack : -2.542
+TNS   : -7.592
 
 Type  : Slow Model Hold 'CLK_10HZ'
 Slack : 0.391
 TNS   : 0.000
 
+Type  : Slow Model Hold 'CLK_1MHZ'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CLK_2MHZ'
+Slack : 0.391
+TNS   : 0.000
+
 Type  : Slow Model Recovery 'clk_50Mhz'
-Slack : -1.739
-TNS   : -231.187
+Slack : -1.738
+TNS   : -231.025
 
 Type  : Slow Model Removal 'clk_50Mhz'
-Slack : 2.508
+Slack : 2.507
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'clk_50Mhz'
 Slack : -1.380
-TNS   : -366.380
+TNS   : -390.380
+
+Type  : Slow Model Minimum Pulse Width 'CLK_1MHZ'
+Slack : -0.500
+TNS   : -60.000
 
 Type  : Slow Model Minimum Pulse Width 'CLK_400HZ'
 Slack : -0.500
@@ -46,33 +66,53 @@ Type  : Slow Model Minimum Pulse Width 'CLK_10HZ'
 Slack : -0.500
 TNS   : -8.000
 
+Type  : Slow Model Minimum Pulse Width 'CLK_2MHZ'
+Slack : -0.500
+TNS   : -5.000
+
+Type  : Fast Model Setup 'CLK_1MHZ'
+Slack : -306.144
+TNS   : -3413.544
+
 Type  : Fast Model Setup 'clk_50Mhz'
-Slack : -1.525
-TNS   : -117.071
+Slack : -1.569
+TNS   : -132.323
 
 Type  : Fast Model Setup 'CLK_400HZ'
-Slack : -0.054
-TNS   : -0.432
+Slack : -0.077
+TNS   : -0.616
 
 Type  : Fast Model Setup 'CLK_10HZ'
 Slack : 0.064
 TNS   : 0.000
 
-Type  : Fast Model Hold 'clk_50Mhz'
-Slack : -1.585
-TNS   : -1.585
+Type  : Fast Model Setup 'CLK_2MHZ'
+Slack : 0.143
+TNS   : 0.000
 
 Type  : Fast Model Hold 'CLK_400HZ'
-Slack : -1.320
-TNS   : -1.320
+Slack : -1.687
+TNS   : -1.687
+
+Type  : Fast Model Hold 'clk_50Mhz'
+Slack : -1.585
+TNS   : -4.719
 
 Type  : Fast Model Hold 'CLK_10HZ'
 Slack : 0.215
 TNS   : 0.000
 
+Type  : Fast Model Hold 'CLK_1MHZ'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLK_2MHZ'
+Slack : 0.215
+TNS   : 0.000
+
 Type  : Fast Model Recovery 'clk_50Mhz'
 Slack : -0.637
-TNS   : -84.647
+TNS   : -84.608
 
 Type  : Fast Model Removal 'clk_50Mhz'
 Slack : 1.516
@@ -80,7 +120,11 @@ TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'clk_50Mhz'
 Slack : -1.380
-TNS   : -366.380
+TNS   : -390.380
+
+Type  : Fast Model Minimum Pulse Width 'CLK_1MHZ'
+Slack : -0.500
+TNS   : -60.000
 
 Type  : Fast Model Minimum Pulse Width 'CLK_400HZ'
 Slack : -0.500
@@ -89,5 +133,9 @@ TNS   : -43.000
 Type  : Fast Model Minimum Pulse Width 'CLK_10HZ'
 Slack : -0.500
 TNS   : -8.000
+
+Type  : Fast Model Minimum Pulse Width 'CLK_2MHZ'
+Slack : -0.500
+TNS   : -5.000
 
 ------------------------------------------------------------

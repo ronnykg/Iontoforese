@@ -2910,6 +2910,11 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <part name="R56" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R57" library="SparkFun" deviceset="RESISTOR" device="0603"/>
 <part name="R33" library="SparkFun" deviceset="RESISTOR" device="0603"/>
+<part name="SUPPLY21" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY24" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY28" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY29" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY32" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3084,6 +3089,11 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <instance part="R56" gate="G$1" x="678.18" y="259.08" rot="R90"/>
 <instance part="R57" gate="G$1" x="675.64" y="236.22" rot="R270"/>
 <instance part="R33" gate="G$1" x="617.22" y="228.6" rot="R270"/>
+<instance part="SUPPLY21" gate="GND" x="553.72" y="58.42" rot="R270"/>
+<instance part="SUPPLY24" gate="GND" x="370.84" y="53.34" rot="R270"/>
+<instance part="SUPPLY28" gate="GND" x="609.6" y="119.38" rot="R90"/>
+<instance part="SUPPLY29" gate="GND" x="424.18" y="116.84" rot="R180"/>
+<instance part="SUPPLY32" gate="GND" x="556.26" y="104.14" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -3304,6 +3314,26 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
 <junction x="477.52" y="88.9"/>
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U4" gate="A" pin="VREF_OUT"/>
+<pinref part="SUPPLY21" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="VREF_OUT"/>
+<pinref part="SUPPLY24" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U4" gate="A" pin="-IN_B"/>
+<pinref part="SUPPLY28" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="-IN_B"/>
+<pinref part="SUPPLY29" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U4" gate="A" pin="GND_("/>
+<pinref part="SUPPLY32" gate="GND" pin="GND"/>
 </segment>
 </net>
 <net name="VDD" class="0">
@@ -4197,6 +4227,8 @@ Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
 <wire x1="589.28" y1="66.04" x2="645.16" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="SV1" gate="G$1" pin="24"/>
 <wire x1="645.16" y1="66.04" x2="645.16" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="U4" gate="A" pin="D5_B"/>
+<wire x1="556.26" y1="132.08" x2="589.28" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$78" class="0">
