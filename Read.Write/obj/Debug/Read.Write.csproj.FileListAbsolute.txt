@@ -9,3 +9,4 @@ C:\Program Files\LibUsbDotNet\Src\Examples\Read.Write\obj\Debug\Read.Write.pdb
 C:\Program Files\LibUsbDotNet\Src\Examples\Read.Write\obj\Debug\Examples.Form1.resources
 C:\Program Files\LibUsbDotNet\Src\Examples\Read.Write\obj\Debug\Read.Write.csproj.GenerateResource.Cache
 C:\Program Files\LibUsbDotNet\Src\Examples\Read.Write\obj\Debug\Examples.Properties.Resources.resources
+C:\Program Files\LibUsbDotNet\Src\Examples\Read.Write\obj\Debug\Examples.Form2.resources
