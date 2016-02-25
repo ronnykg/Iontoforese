@@ -51,7 +51,7 @@ ARCHITECTURE a OF DE2_CLOCK IS
 	WRITE_CHAR2,WRITE_CHAR3, RETURN_HOME, TOGGLE_E, RESET1, RESET2, 
 	RESET3, DISPLAY_OFF, DISPLAY_CLEAR); -- WRITE_CHAR4,WRITE_CHAR5,WRITE_CHAR6,WRITE_CHAR7,WRITE_CHAR8, WRITE_CHAR9, WRITE_CHAR10,
 	type memory is array (INTEGER range <>) of std_logic_vector(15	downto 0); --Was 7 downto 0 and Send "00000000" & imp_dummy
-	type memory1 is array (INTEGER range <>) of std_logic_vector(23 downto 0);
+	type memory1 is array (INTEGER range <>) of std_logic_vector(7 downto 0);
 	type memoryint is array (INTEGER range <>) of float (float_exponent_width downto -float_fraction_width);
 	--type memoryDAC is array (INTEGER range <>) of std_logic_vector(11 downto 0);
 	SIGNAL state, next_command: STATE_TYPE;
@@ -59,6 +59,7 @@ ARCHITECTURE a OF DE2_CLOCK IS
 	SIGNAL CLK_COUNT_400HZ: STD_LOGIC_VECTOR(19 DOWNTO 0);
 	SIGNAL CLK_COUNT_10HZ: STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL CLK_COUNT_2MHZ: STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL CLK_COUNT_12MHZ: STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL CLK_COUNT_1MHZ: STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL BCD_SECD0,BCD_SECD1,BCD_MIND0,BCD_MIND1: STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL BCD_HRD0,BCD_HRD1,BCD_TSEC: STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -66,16 +67,20 @@ ARCHITECTURE a OF DE2_CLOCK IS
 	SIGNAL CLK_400HZ, CLK_10HZ: STD_LOGIC;
 	SIGNAL CLK_1MHZ : std_logic := '0';
 	SIGNAL CLK_2MHZ : std_logic := '0';
+	SIGNAL CLK_12MHZ : std_logic := '0';
 	
    SIGNAL ADC1: memoryint(0 to 10) := ((others=> (others=>'0'))); 
 	--SIGNAL ADC2: memoryint(0 to 10) := ((others=> (others=>'0')));
 	SIGNAL ADC3: memoryint(0 to 10) := ((others=> (others=>'0'))); --FOR TEST GOERTZEL
-	SIGNAL  ADC2: STD_LOGIC_VECTOR(7 DOWNTO 0) := (others=>'0');
+	--SIGNAL  ADC2: STD_LOGIC_VECTOR(7 DOWNTO 0) := (others=>'0');
+	SIGNAL  ADC2: memory1(0 to 2047) := ((others=> (others=>'0')));
 	
 	--SIGNAL ADC1: memory(0 to 7) := ((others=> (others=>'0')));--STD_LOGIC_VECTOR(7 DOWNTO 0) := "00000000"; --float (float_exponent_width downto -float_fraction_width) := (others=>'0');
 	--SIGNAL ADC3: STD_LOGIC_VECTOR(7 DOWNTO 0); --(3999999 downto 0);
 	--SIGNAL FREQ_DIV: INTEGER RANGE 40 to 400000;
 	SIGNAL COUNT_RMS: INTEGER RANGE 0 to 10:= 0;
+	SHARED VARIABLE COUNT_HF: INTEGER RANGE 0 to 4095:= 0;
+	SHARED VARIABLE COUNT_HF1: INTEGER RANGE 0 to 4095:= 0;
 	CONSTANT COUNT_RMS_FINAL: INTEGER := 10;--24999;
 	
 	SIGNAL r_w ,r_w1     : std_logic:= '0';
@@ -177,7 +182,7 @@ RESET => RESET
 	GPIO0 (12) <= CLK_1MHZ; --CS = 0 Enable DAC read  // Must be pulsed to load new data
 	GPIO0 (14) <= r_w;--'0'; --CLK_1MHZ; --R/W = 1 Enable DAC	read // 0 to load new data
 	GPIO0 (16) <= r_w1;--'0';
-   GPIO1 (8) <= CLK_2MHZ; --DCLK ADC
+   GPIO1 (8) <= CLK_12MHZ; --DCLK ADC
 -------------------------------USB------------------------------	
 --DE2 USB config
 OTG_FSPEED  <='0';            -- 0 = Enable, Z = Disable 
@@ -243,28 +248,30 @@ dvrq: devreq port map(clk, reset_usb, drv_o.devreq, drv_i.devreq);
 
 demo_send: process(clk, SW)
 VARIABLE a: integer range 0 to 1 := 0;
-VARIABLE k: integer range 0 to 1 := 0;
+VARIABLE k: integer range 0 to 3 := 0;
 VARIABLE dummy_std:  STD_LOGIC_VECTOR(15 DOWNTO 0);
 begin
   if rising_edge(clk) then
-    if SW(0) = '1' then
+    if drv_o.io.Rdy = '1' OR innerCounter > 0 OR COUNT_HF1 > 0 then
+	 
+	 			
+			
      if counter < 15 then
 	  	--case k is
 		--	when 1 => dummy_std := "0000000000000001";--
 		--	when others => dummy_std := "0000000000010000";--
 	   --end case;
 		--case a is 
+		 
 			--when 0 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= dummy_std;--"0000000000000011";--			
 			--k := k+1;
-			drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= "00000000" & ADC2;-- "00000000" & IMP_DUMMY(0);--"0000000000000011";--
+			drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= "00000000" & ADC2(COUNT_HF1);-- "00000000" & IMP_DUMMY(0);--"0000000000000011";--
 			--when 2 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= IMP_DUMMY(1);--"00000000" & IMP_DUMMY(1);--"0000000000000011";--
 			--when 3 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= IMP_DUMMY(2);-- "00000000" & IMP_DUMMY(2);--"0000000000000011";--
 			--when 4 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= IMP_DUMMY(3);-- "00000000" & IMP_DUMMY(0);--"0000000000000011";--
 			--when 5 => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= IMP_DUMMY(4);-- "00000000" & IMP_DUMMY(2);--"0000000000000011";--
 			--when others => drv_i.io.Sdata(drv_o.io.Sdata'high downto 0) <= "0000000000000000"; --IMP_DUMMY(2);-- "00000000" & IMP_DUMMY(2);--"0000000000000011";--
-			
-	   --end case;
-		
+			--k:= k+1;
 		 
 		 
 		--drv_i.io.Sdata(7 downto 0) <= IMP_DUMMY1;--"0000000000000011";--
@@ -276,7 +283,7 @@ begin
 		--drv_i.io.Sdata,(7 downto 0) <= std_logic_vector(to_unsigned(counter, 8));
       if innerCounter = 0 then
         drv_i.io.Rdy <= '1';
-		   a := a +1;
+		 --  a := a +1;
       -- LEDR(drv_o.io.Sdata'high downto 0) <= "1111111111111111";
        innerCounter <= innerCounter + 1;
       elsif innerCounter > 0 and innerCounter < 1850 then
@@ -286,6 +293,15 @@ begin
       elsif innerCounter = 1850 then
         innerCounter <= 0;
        counter <= counter + 1;
+		 
+		 COUNT_HF1 := COUNT_HF1+1;
+	   --end case;
+			IF COUNT_HF1=1000 THEN
+			COUNT_HF1 := 0;
+			ELSE
+			COUNT_HF1 := COUNT_HF1 +1;
+			END IF;
+		 
       end if;
       elsif counter = 15 then 
        counter <= 0;
@@ -322,10 +338,26 @@ end process;
 	BEGIN
 	 WAIT UNTIL CLK_50MHZ'EVENT AND CLK_50MHZ = '1';
 		IF RESET = '0' THEN
+		 CLK_COUNT_12MHZ <= X"00";
+		 CLK_12MHZ <= '0';
+		ELSE
+				IF CLK_COUNT_12MHZ < x"01" THEN  -- "00" - 25Mhz  "01" - 12,5Mhz    "02" - 12,5Mhz   "03" - 8,33Mhz=50/6    "04"  - 50/8 Mhz! -- 2.275 - "0A"  
+				 CLK_COUNT_12MHZ <= CLK_COUNT_12MHZ + 1;
+				ELSE
+		    	 CLK_COUNT_12MHZ <= X"00";
+				 CLK_12MHZ <= NOT CLK_12MHZ;
+				END IF;
+		END IF;
+  END PROCESS;
+  
+  	  PROCESS	
+	BEGIN
+	 WAIT UNTIL CLK_50MHZ'EVENT AND CLK_50MHZ = '1';
+		IF RESET = '0' THEN
 		 CLK_COUNT_2MHZ <= X"00";
 		 CLK_2MHZ <= '0';
 		ELSE
-				IF CLK_COUNT_2MHZ < x"01" THEN  -- "00" - 25Mhz  "01" - 12,5Mhz    "02" - 12,5Mhz   "03" - 8,33Mhz=50/6    "04"  - 50/8 Mhz! -- 2.275 - "0A"  
+				IF CLK_COUNT_2MHZ < x"05" THEN  -- "00" - 25Mhz  "01" - 12,5Mhz    "02" - 12,5Mhz   "03" - 8,33Mhz=50/6    "04"  - 50/8 Mhz! -- 2.275 - "0A"  
 				 CLK_COUNT_2MHZ <= CLK_COUNT_2MHZ + 1;
 				ELSE
 		    	 CLK_COUNT_2MHZ <= X"00";
@@ -333,6 +365,7 @@ end process;
 				END IF;
 		END IF;
   END PROCESS;
+  
   	  PROCESS	
 	BEGIN
 	 WAIT UNTIL CLK_50MHZ'EVENT AND CLK_50MHZ = '1';
@@ -553,7 +586,7 @@ end process;
 -- END PROCESS;
 
 		--ADC1 <= GPIO0 (18) & GPIO0 (20) & GPIO0 (22) & GPIO0 (24) & GPIO0 (26) & GPIO0 (28) & GPIO0 (30) & GPIO0 (32);--IMP_DUMMY(0) <=  GPIO0 (19) & GPIO0 (21) & GPIO0 (23) & GPIO0 (25) & GPIO0 (27) & GPIO0 (29) & GPIO0 (31) & GPIO0 (33);     --OK --ADC1(COUNT_RMS) <= GPIO0 (18) & GPIO0 (20) & GPIO0 (22) & GPIO0 (24) & GPIO0 (26) & GPIO0 (28) & GPIO0 (30) & GPIO0 (32);
-		ADC2 <= GPIO1 (16) & GPIO1 (18) & GPIO1 (20) & GPIO1 (22) & GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30);--ADC2 <= GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30) & GPIO1 (32) & GPIO1 (34) & GPIO1 (35) & GPIO1 (33); --IMP_DUMMY(0) <= GPIO1 (25) & GPIO1 (27) & GPIO1 (29) & GPIO1 (31) & GPIO1 (33) & GPIO1 (35) & GPIO1 (34) & GPIO1 (32); --ADC2(COUNT_RMS) <= GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30) & GPIO1 (32) & GPIO1 (34) & GPIO1 (35) & GPIO1 (33); --OK    --ADC2(COUNT_RMS) <= GPIO1 (11) & GPIO1 (9) & GPIO1 (7) & GPIO1 (5) & GPIO1 (3) & GPIO1 (1) & GPIO1 (0) & GPIO1 (2);
+		--ADC2 <= GPIO1 (16) & GPIO1 (18) & GPIO1 (20) & GPIO1 (22) & GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30);--ADC2 <= GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30) & GPIO1 (32) & GPIO1 (34) & GPIO1 (35) & GPIO1 (33); --IMP_DUMMY(0) <= GPIO1 (25) & GPIO1 (27) & GPIO1 (29) & GPIO1 (31) & GPIO1 (33) & GPIO1 (35) & GPIO1 (34) & GPIO1 (32); --ADC2(COUNT_RMS) <= GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30) & GPIO1 (32) & GPIO1 (34) & GPIO1 (35) & GPIO1 (33); --OK    --ADC2(COUNT_RMS) <= GPIO1 (11) & GPIO1 (9) & GPIO1 (7) & GPIO1 (5) & GPIO1 (3) & GPIO1 (1) & GPIO1 (0) & GPIO1 (2);
 		--ADC3 <= GPIO1 (17) & GPIO1 (19) & GPIO1 (21) & GPIO1 (23) & GPIO1 (25) & GPIO1 (27) & GPIO1 (29) & GPIO1 (31); --IMP_DUMMY(2) <=  GPIO1 (16) & GPIO1 (18) & GPIO1 (20) & GPIO1 (22) & GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30);--OK--ADC3(COUNT_RMS) <= GPIO1 (18) & GPIO1 (16) & GPIO1 (14) & GPIO1 (12) & GPIO1 (10) & GPIO1 (8) & GPIO1 (6) & GPIO1 (4);
 
 	PROCESS (CLK_50MHZ, reset) --it enter in the rising and falling edge, the freq is acctually 6,25Mhz
@@ -635,7 +668,26 @@ end process;
 	END PROCESS;
 
 (GPIO0 (11), GPIO0 (9), GPIO0 (7), GPIO0 (5), GPIO0 (3), GPIO0 (1), GPIO0 (0), GPIO0 (2), GPIO0 (4),GPIO0 (6),GPIO0 (8), GPIO0 (10)) <=  DAC_SIGNAL(COUNT_DAC);  --Maybe overhead outside the for
-	
+
+PROCESS	(CLK_50MHZ,RESET )
+   --VARIABLE COUNT_DAC: INTEGER RANGE 0 to 146:= 0;	
+	BEGIN
+	IF CLK_2MHZ'EVENT AND CLK_2MHZ = '0' THEN
+	IF RESET = '0' THEN
+	COUNT_HF := 0;
+	ELSE
+		IF COUNT_HF1 = 0 THEN
+				COUNT_HF := 0;
+			ELSIF COUNT_HF = 2048 THEN
+				COUNT_HF := 2048;
+			ELSE
+				COUNT_HF := COUNT_HF+1;
+			END IF;
+			ADC2(COUNT_HF) <= GPIO1 (16) & GPIO1 (18) & GPIO1 (20) & GPIO1 (22) & GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30);--ADC2 <= GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30) & GPIO1 (32) & GPIO1 (34) & GPIO1 (35) & GPIO1 (33); --IMP_DUMMY(0) <= GPIO1 (25) & GPIO1 (27) & GPIO1 (29) & GPIO1 (31) & GPIO1 (33) & GPIO1 (35) & GPIO1 (34) & GPIO1 (32); --ADC2(COUNT_RMS) <= GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30) & GPIO1 (32) & GPIO1 (34) & GPIO1 (35) & GPIO1 (33); --OK    --ADC2(COUNT_RMS) <= GPIO1 (11) & GPIO1 (9) & GPIO1 (7) & GPIO1 (5) & GPIO1 (3) & GPIO1 (1) & GPIO1 (0) & GPIO1 (2);
+	END IF;
+	END IF;
+END PROCESS;
+
 PROCESS	(CLK_50MHZ, reset)
    --VARIABLE COUNT_DAC: INTEGER RANGE 0 to 146:= 0;	
 	BEGIN
@@ -644,11 +696,11 @@ PROCESS	(CLK_50MHZ, reset)
 		 --(GPIO0 (11), GPIO0 (9), GPIO0 (7), GPIO0 (5), GPIO0 (3), GPIO0 (1), GPIO0 (0), GPIO0 (2), GPIO0 (4),GPIO0 (6),GPIO0 (8), GPIO0 (10)) <= conv_std_logic_vector(0,12);--(GPIO0 (10), GPIO0 (8),GPIO0 (6),GPIO0 (4),GPIO0 (2),GPIO0 (0),GPIO0 (1),GPIO0 (3),GPIO0 (5),GPIO0 (7),GPIO0 (9),GPIO0 (11)) <= conv_std_logic_vector(0,12); --OK 2730 1010101010..
 		 COUNT_DAC := 0;
 	 ELSE --IF DELAY_90 = 0 THEN
-				COUNT_DAC := COUNT_DAC +1;
+			COUNT_DAC := COUNT_DAC +1;			
 			
 			IF COUNT_DAC = 3332 THEN
 				COUNT_DAC := 0;
-			END IF;
+			END IF;		
 			
 			r_w1 <= NOT r_w1;
 	END IF;
@@ -656,3 +708,4 @@ PROCESS	(CLK_50MHZ, reset)
    END IF;
 END PROCESS;
 END a;
+
