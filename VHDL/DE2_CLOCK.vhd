@@ -588,84 +588,43 @@ end process;
 		--ADC1 <= GPIO0 (18) & GPIO0 (20) & GPIO0 (22) & GPIO0 (24) & GPIO0 (26) & GPIO0 (28) & GPIO0 (30) & GPIO0 (32);--IMP_DUMMY(0) <=  GPIO0 (19) & GPIO0 (21) & GPIO0 (23) & GPIO0 (25) & GPIO0 (27) & GPIO0 (29) & GPIO0 (31) & GPIO0 (33);     --OK --ADC1(COUNT_RMS) <= GPIO0 (18) & GPIO0 (20) & GPIO0 (22) & GPIO0 (24) & GPIO0 (26) & GPIO0 (28) & GPIO0 (30) & GPIO0 (32);
 		--ADC2 <= GPIO1 (16) & GPIO1 (18) & GPIO1 (20) & GPIO1 (22) & GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30);--ADC2 <= GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30) & GPIO1 (32) & GPIO1 (34) & GPIO1 (35) & GPIO1 (33); --IMP_DUMMY(0) <= GPIO1 (25) & GPIO1 (27) & GPIO1 (29) & GPIO1 (31) & GPIO1 (33) & GPIO1 (35) & GPIO1 (34) & GPIO1 (32); --ADC2(COUNT_RMS) <= GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30) & GPIO1 (32) & GPIO1 (34) & GPIO1 (35) & GPIO1 (33); --OK    --ADC2(COUNT_RMS) <= GPIO1 (11) & GPIO1 (9) & GPIO1 (7) & GPIO1 (5) & GPIO1 (3) & GPIO1 (1) & GPIO1 (0) & GPIO1 (2);
 		--ADC3 <= GPIO1 (17) & GPIO1 (19) & GPIO1 (21) & GPIO1 (23) & GPIO1 (25) & GPIO1 (27) & GPIO1 (29) & GPIO1 (31); --IMP_DUMMY(2) <=  GPIO1 (16) & GPIO1 (18) & GPIO1 (20) & GPIO1 (22) & GPIO1 (24) & GPIO1 (26) & GPIO1 (28) & GPIO1 (30);--OK--ADC3(COUNT_RMS) <= GPIO1 (18) & GPIO1 (16) & GPIO1 (14) & GPIO1 (12) & GPIO1 (10) & GPIO1 (8) & GPIO1 (6) & GPIO1 (4);
-
-	PROCESS (CLK_50MHZ, reset) --it enter in the rising and falling edge, the freq is acctually 6,25Mhz
+-------GOERTZEL-------
+--	PROCESS (CLK_50MHZ, reset) --it enter in the rising and falling edge, the freq is acctually 6,25Mhz
 	
-	VARIABLE d1_1: memoryint(0 to 5) := ((others=> (others=>'0')));--float (float_exponent_width downto -float_fraction_width) := (others=>'0');
-	VARIABLE d1_2: memoryint(0 to 5) := ((others=> (others=>'0')));--float (float_exponent_width downto -float_fraction_width) := (others=>'0');
-	VARIABLE y:    memoryint(0 to 5) := ((others=> (others=>'0')));--float (float_exponent_width downto -float_fraction_width) := (others=>'0');
-	VARIABLE x:   memoryint(0 to 5) := ((others=> (others=>'0')));
-	--VARIABLE ADC1, ADC2, ADC3: memory(0 to 2) := ((others=> (others=>'0'))); --(STD_LOGIC_VECTOR(7 DOWNTO 0) := "00000000";
+--	VARIABLE d1_1: memoryint(0 to 5) := ((others=> (others=>'0')));--float (float_exponent_width downto -float_fraction_width) := (others=>'0');
+--	VARIABLE d1_2: memoryint(0 to 5) := ((others=> (others=>'0')));--float (float_exponent_width downto -float_fraction_width) := (others=>'0');
+--	VARIABLE y:    memoryint(0 to 5) := ((others=> (others=>'0')));--float (float_exponent_width downto -float_fraction_width) := (others=>'0');
+--	VARIABLE x:   memoryint(0 to 5) := ((others=> (others=>'0')));
 
 
-	BEGIN
-	--WAIT UNTIL CLK_2MHZ'EVENT AND CLK_2MHZ = '1';
+--	BEGIN
 
-		IF RESET = '0' THEN
-	      COUNT_RMS <= 0;
+--		IF RESET = '0' THEN
+--	      COUNT_RMS <= 0;
 		 
-		ELSIF CLK_1MHZ'EVENT AND CLK_1MHZ = '1' THEN --400HZ overhead WTF? NEED THE ELSIF
+--		ELSIF CLK_1MHZ'EVENT AND CLK_1MHZ = '1' THEN --400HZ overhead WTF? NEED THE ELSIF
 		
-		IF COUNT_RMS = COUNT_RMS_FINAL THEN
-		--FOR j in 0 to 2 loop
-		--	j:= 0;
-			
-		--FOR k in 0 to COUNT_RMS_FINAL LOOP
-		 --y <= resize(to_float("000000000000000000000000" & ADC1(COUNT_RMS))*33000/1020+30000/4,y);
-		-- y <= resize(to_float("000000000000000000000000" & ADC1(COUNT_RMS))+resize(multiply(realW(j),d1_1),y) - d1_2,y);
-		-- y <= resize(to_float("000000000000000000000000" & ADC1(COUNT_RMS))*32.3529+7500,y);
-		-- y <= resize(divide(y,resize((1-y*0.0001),y))+resize(multiply(realW(j),d1_1),y) - d1_2,y);		
-		-- y := resize(to_float("000000000000000000000000" & ADC1(k))+resize(multiply(realW(j),d1_1),y) - d1_2,y);
-		--y := resize(resize(to_float("000000000000000" & ADC1),y)+resize(multiply(realW(j),d1_1),y) - d1_2,y);
-		--y := resize(ADC1(k)+resize(multiply(realW(j),d1_1),y) - d1_2,y);
-		--y := resize(resize(to_float("0000000000000000" & ADC1(k)),y)+resize(multiply(realW(j),d1_1),y) - d1_2,y);
-		--y := resize(to_float("0000000000000000" & ADC1(k)),y);
+--		IF COUNT_RMS = COUNT_RMS_FINAL THEN
+		
 
-		--END LOOP;		
+--		x(0) := resize((sqrt((realW(0)*d1_1(0)*to_float(0.5) - d1_2(0)) * (realW(0)*d1_1(0)*to_float(0.5) - d1_2(0))+(imagW(0)*d1_1(0))*(imagW(0)*d1_1(0)))),y(0));
 		
-		x(0) := resize((sqrt((realW(0)*d1_1(0)*to_float(0.5) - d1_2(0)) * (realW(0)*d1_1(0)*to_float(0.5) - d1_2(0))+(imagW(0)*d1_1(0))*(imagW(0)*d1_1(0)))),y(0));
-		--x(1) := resize((sqrt((realW(1)*d1_1(1)*to_float(0.5) - d1_2(1)) * (realW(1)*d1_1(1)*to_float(0.5) - d1_2(1))+(imagW(1)*d1_1(1))*(imagW(1)*d1_1(1)))),y(0));
-		--x(2) := resize((sqrt((realW(2)*d1_1(2)*to_float(0.5) - d1_2(2)) * (realW(2)*d1_1(2)*to_float(0.5) - d1_2(2))+(imagW(2)*d1_1(2))*(imagW(2)*d1_1(2)))),y(0));
-		--x(3) := resize((sqrt((realW(3)*d1_1(3)*to_float(0.5) - d1_2(3)) * (realW(3)*d1_1(0)*to_float(0.5) - d1_2(3))+(imagW(3)*d1_1(3))*(imagW(3)*d1_1(3)))),y(0));
-		--x(4) := resize((sqrt((realW(4)*d1_1(4)*to_float(0.5) - d1_2(4)) * (realW(4)*d1_1(1)*to_float(0.5) - d1_2(4))+(imagW(4)*d1_1(4))*(imagW(4)*d1_1(4)))),y(0));
-		--x(5) := resize((sqrt((realW(5)*d1_1(5)*to_float(0.5) - d1_2(5)) * (realW(5)*d1_1(2)*to_float(0.5) - d1_2(5))+(imagW(5)*d1_1(5))*(imagW(5)*d1_1(5)))),y(0));
+--		IMP_DUMMY(0) <= std_logic_vector(to_unsigned(x(0),16,round_nearest)); --Was 8 bits
+		
 
-
-		IMP_DUMMY(0) <= std_logic_vector(to_unsigned(x(0),16,round_nearest)); --Was 8 bits
-		--IMP_DUMMY(1) <= std_logic_vector(to_unsigned(x(1),16,round_nearest));
-		--IMP_DUMMY(2) <= std_logic_vector(to_unsigned(x(2),16,round_nearest));
-		--IMP_DUMMY(3) <= std_logic_vector(to_unsigned(x(3),16,round_nearest)); --Was 8 bits
-		--IMP_DUMMY(4) <= std_logic_vector(to_unsigned(x(4),16,round_nearest));
-		--IMP_DUMMY(5) <= std_logic_vector(to_unsigned(x(5),16,round_nearest));
-
-
-			d1_1 :=  ((others=> (others=>'0')));
-			d1_2 :=  ((others=> (others=>'0')));
-			y    :=  ((others=> (others=>'0')));
+--			d1_1 :=  ((others=> (others=>'0')));
+--			d1_2 :=  ((others=> (others=>'0')));
+--			y    :=  ((others=> (others=>'0')));
 		
-		COUNT_RMS <= 0;
+--		COUNT_RMS <= 0;
 		
-		ELSE
-		--ADC1(COUNT_RMS) := std_logic_vector(to_unsigned(COUNT_RMS,8));
-		--y := resize(ADC2+resize(multiply(realW(0),d1_1),y) - d1_2,y);
-		--y := resize(resize(to_float("0000000000000000" & ADC2(COUNT_RMS)),y)+resize(multiply(realW(0),d1_1),y) - d1_2,y);
-		
-		--y(0) := resize(to_float("0000000000000000" & ADC2)+multiply(realW(0),d1_1(0)) - d1_2(0),y(0));		
-		--y(1) := resize(ADC2(COUNT_RMS)+resize(multiply(realW(1),d1_1(1)),y(0)) - d1_2(1),y(0));
-		--y(2) := resize(ADC3(COUNT_RMS)+resize(multiply(realW(2),d1_1(2)),y(0)) - d1_2(2),y(0));
-		--y(3) := resize(ADC1(COUNT_RMS)+resize(multiply(realW(3),d1_1(3)),y(0)) - d1_2(3),y(0));		
-		--y(4) := resize(ADC2(COUNT_RMS)+resize(multiply(realW(4),d1_1(4)),y(0)) - d1_2(4),y(0));
-		--y(5) := resize(ADC3(COUNT_RMS)+resize(multiply(realW(5),d1_1(5)),y(0)) - d1_2(5),y(0));
-		
-		--r_w <= NOT r_w; --Flag for timing purposes
-		d1_2 := d1_1;
-		d1_1 := y;
-		
-		--COUNT_RMS <= COUNT_RMS +1; -- if the smallest freq is 100HZ it will save 100000
-		
-		END IF;
-		END IF;
-	END PROCESS;
+--		ELSE
+--		d1_2 := d1_1;
+--		d1_1 := y;
+--		
+--		END IF;
+--		END IF;
+--	END PROCESS;
 
 (GPIO0 (11), GPIO0 (9), GPIO0 (7), GPIO0 (5), GPIO0 (3), GPIO0 (1), GPIO0 (0), GPIO0 (2), GPIO0 (4),GPIO0 (6),GPIO0 (8), GPIO0 (10)) <=  DAC_SIGNAL(COUNT_DAC);  --Maybe overhead outside the for
 

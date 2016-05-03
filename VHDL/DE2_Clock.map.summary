@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri Jan 15 11:31:03 2016
+Analysis & Synthesis Status : Successful - Tue Apr 12 10:08:19 2016
 Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Full Version
 Revision Name : DE2_Clock
 Top-level Entity Name : DE2_CLOCK
 Family : Cyclone II
-Total logic elements : 19,481
-    Total combinational functions : 11,176
+Total logic elements : 19,767
+    Total combinational functions : 11,462
     Dedicated logic registers : 8,603
 Total registers : 8603
 Total pins : 150
