@@ -3,7 +3,7 @@ clear all
 close all
 filename = 'NOTCH.xlsx';
 sheet = 'Pacientes';
-xlRange = 'A2:I13';
+xlRange = 'A2:I42';
 
 [num txt raw] = xlsread(filename,sheet,xlRange);
 Fin = [50e3 100e3 200e3 300e3 400e3 500e3 600e3 700e3 800e3 900e3];
@@ -83,23 +83,23 @@ end
 %  legend(num2str(Fin(1)),num2str(Fin(2)),num2str(Fin(3)),num2str(Fin(4)),num2str(Fin(5)),num2str(Fin(6)),num2str(Fin(7)),num2str(Fin(8)),num2str(Fin(9)),num2str(Fin(10)))
 end
 for i=1:freq
-desvE(i)= std(ImpE(:,i))
-medE(i) = mean(ImpE(:,i))
-desvM(i)= std(ImpM(:,i))
-medM(i) = mean(ImpM(:,i))
-desvMS(i)= std(ImpES(:,i))
-medMS(i) = mean(ImpES(:,i))
-desvES(i)= std(ImpMS(:,i))
-medES(i) = mean(ImpMS(:,i))
+desvE(i)= std(ImpE(:,i));
+medE(i) = mean(ImpE(:,i));
+desvM(i)= std(ImpM(:,i));
+medM(i) = mean(ImpM(:,i));
+desvMS(i)= std(ImpES(:,i));
+medMS(i) = mean(ImpES(:,i));
+desvES(i)= std(ImpMS(:,i));
+medES(i) = mean(ImpMS(:,i));
 
-desvdE(i)= std(DerE(:,i))
-meddE(i) = mean(DerE(:,i))
-desvdM(i)= std(DerM(:,i))
-meddM(i) = mean(DerM(:,i))
-desvdMS(i)= std(DerES(:,i))
-meddMS(i) = mean(DerES(:,i))
-desvdES(i)= std(DerMS(:,i))
-meddES(i) = mean(DerMS(:,i))
+desvdE(i)= std(DerE(:,i));
+meddE(i) = mean(DerE(:,i));
+desvdM(i)= std(DerM(:,i));
+meddM(i) = mean(DerM(:,i));
+desvdMS(i)= std(DerES(:,i));
+meddMS(i) = mean(DerES(:,i));
+desvdES(i)= std(DerMS(:,i));
+meddES(i) = mean(DerMS(:,i));
 end
 figure
 
